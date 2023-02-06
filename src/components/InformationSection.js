@@ -5,7 +5,7 @@ import { faSchool } from "@fortawesome/free-solid-svg-icons";
 function InformationSection({selectedPath, setSelectedPath, selectedCountry, setCountry,
      selectedRegion, setRegionSelected}){
     return(
-        <div className="font-serif text-center text-2xl min-h-screen">
+        <div className="font-serif text-center text-2xl pb-12">
             
                 <div>
                     <div className="flex flex-row justify-center gap-4 pt-8">
@@ -72,13 +72,18 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                                             //<option value="newbrunswick">New Brunswick</option>
                                             //<option value="newfoundland">Newfoundland and Labrador</option>
                                             //<option value="novascotia">Nova Scotia</option>
-                                            <option value="quebec">Quebec</option>
+                                            <option value="quebec" onSelect={()=>{
+                                                setRegionSelected("Quebec");
+                                            }}>Quebec</option>
                                             //<option value="saskatchewan">Saskatchewan</option>
                                             //<option value="ontario">Ontario</option>
                                             
                                         }  
                                             </select>
-                                            <button className="mx-4 px-2 rounded-lg border-4">Next</button>
+                                            <button className="mx-4 px-2 rounded-lg border-4" onClick={(e)=>{
+                                               e.preventDefault();
+                                               setSelectedPath(2);
+                                            }}>Next</button>
                                         </form>
                                     </div>
                                     
