@@ -2,8 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faSchool } from "@fortawesome/free-solid-svg-icons";
 
-function InformationSection({selectedPath, setSelectedPath, selectedCountry, setCountry,
-     selectedRegion, setRegionSelected}){
+function InformationSection({selectedPath, setSelectedPath, selectedCountry, setCountry, setCollege}){
     return(
         <div className="font-serif text-center text-2xl pb-12">
             
@@ -17,14 +16,15 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                         <div className={selectedPath >= 1? "rounded-lg border-4 p-8 w-1/4 border-green-500 hover:border-green-500 " :
                          "rounded-lg border-4 p-8 hover:border-green-500 w-1/4"}
                         onClick={()=>{
-                            setSelectedPath(1);
+                            //setSelectedPath(1);
+                          setCollege(1);
                         }}>
                             College
                         </div>
 
                         <div className="rounded-lg border-4 p-8 w-1/4 border-rose-500"
                         onClick={()=>{
-                            
+                            setCollege(2);
                         }}>
                             University 
                         </div>
@@ -32,14 +32,14 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                 
                     
                     {
-                        selectedPath > 0 &&
+                       // selectedPath > 0 &&
                         <div>
                             <div className="flex flex-row justify-center gap-4">
                             <p>Choose Your Country</p>
                             <FontAwesomeIcon icon={faEarthAmericas} className="fa-xl"/>
                             </div>
                         <div className="flex flex-row justify-center  pt-8 pb-16 gap-12">
-                            <div className={selectedCountry == "Canada"?
+                            <div className={selectedCountry === "Canada"?
                              "rounded-lg border-4 p-8 border-green-500 hover:border-green-500 " :
                          "rounded-lg border-4 p-8 hover:border-green-500"}
                             onClick={()=>{
@@ -55,10 +55,10 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                         </div>
                     }
                     {
-                        selectedPath > 1 &&
+                      //  selectedPath > 1 &&
                         <div>
                             {
-                                selectedCountry == "Canada" &&
+                                selectedCountry === "Canada" &&
                                 <div className="flex justify-center">
                                     <div className="rounded-lg border-4 p-8 border-green-500">
                                         <form>
@@ -72,9 +72,7 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                                             //<option value="newbrunswick">New Brunswick</option>
                                             //<option value="newfoundland">Newfoundland and Labrador</option>
                                             //<option value="novascotia">Nova Scotia</option>
-                                            <option value="quebec" onSelect={()=>{
-                                                setRegionSelected("Quebec");
-                                            }}>Quebec</option>
+                                            <option value="quebec">Quebec</option>
                                             //<option value="saskatchewan">Saskatchewan</option>
                                             //<option value="ontario">Ontario</option>
                                             
@@ -90,7 +88,7 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                                 </div>
                             }
                             {
-                                selectedCountry == "America" &&
+                                selectedCountry === "America" &&
                                 <div>
 
                                 </div>
@@ -105,7 +103,6 @@ function InformationSection({selectedPath, setSelectedPath, selectedCountry, set
                 
             
         </div>
-            
     )
 }
 

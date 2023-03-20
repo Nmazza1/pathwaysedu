@@ -11,14 +11,13 @@ import CourseBox from "./components/CourseBox";
 
 function App() {
 
-
-  const [selectedRegion, setRegionSelected] = useState(false);
   const [selectedPath, setSelectedPath] = useState(0);
   const [selectedCountry, setCountry] = useState("");
-  const [webState, setWebState] = useState(0);
+  const [college, setCollege] = useState(0);
   const [credsSelected, setCredsSelected] = useState(false);
+  const [district, setDistrict] = useState=("");
   
-
+/*
   const [region, setRegion] = useState("");
   const [prereqs, setPrereqs] = useState(0);
 
@@ -28,8 +27,8 @@ function App() {
   const [tookChemistry, setChemistry] = useState(false);
 
   const [courses, setCourses] = useState([]);
-
-
+*/
+/*
   const loadCoursesFromAPI =  () => {
 
     axios
@@ -44,64 +43,55 @@ function App() {
           console.log('https://pathwaysedu-backendapi-production.up.railway.app/api/courses?prereq=' +prereqs + '&region='+region)
           console.log(response);
         }
-
       })
       .catch((error) => {
       })
-     
   }
 
   useEffect(()=>{
     console.log("Promise is being made")
     loadCoursesFromAPI();
   },[])
-
-  
-  
+  */
   return (
-    <html>
-      <head>
-        <script src="https://kit.fontawesome.com/7302fb4d2e.js" crossorigin="anonymous"></script>
-      </head>
-      <div>
-      <IntroPage/>
-      <InformationSection
-      selectedPath = {selectedPath}
-      setSelectedPath = {setSelectedPath}
-      selectedCountry = {selectedCountry}
-      setCountry = {setCountry}
-      selectedRegion ={selectedRegion}
-      setRegionSelected = {setRegionSelected}/>
-    {
-      selectedPath >= 2 &&
-      <PrereqsButton
-      prereqs={prereqs}
-      setPrereqs={setPrereqs}
-      tookHighMath={tookHighMath}
-      setHighMath={setHighMath}
-      tookHighScience={tookHighScience}
-      setHighScience={setHighScience}
-      tookChemistry={tookChemistry}
-      setChemistry={setChemistry}
-      tookPhysics={tookPhysics}
-      setPhysics={setPhysics}
-      selectedPath={selectedPath}
-      setSelectedPath={setSelectedPath}
-      credsSelected={credsSelected}
-      setCredsSelected={setCredsSelected}
-      loadCoursesFromAPI={loadCoursesFromAPI}
-      />
-    }
-    {
-      selectedPath >= 3 &&
-      <CourseBox
-      courses={courses}/>
-    }
-      
-  </div>
-
-  </html>
-
+    <>
+    <div>
+    <IntroPage/>
+    <InformationSection
+    selectedPath = {selectedPath}
+    setSelectedPath = {setSelectedPath}
+    selectedCountry = {selectedCountry}
+    setCountry = {setCountry}
+    setCollege={setCollege}
+    />
+  {/*
+    selectedPath >= 2 &&
+    <PrereqsButton
+    prereqs={prereqs}
+    setPrereqs={setPrereqs}
+    tookHighMath={tookHighMath}
+    setHighMath={setHighMath}
+    tookHighScience={tookHighScience}
+    setHighScience={setHighScience}
+    tookChemistry={tookChemistry}
+    setChemistry={setChemistry}
+    tookPhysics={tookPhysics}
+    setPhysics={setPhysics}
+    selectedPath={selectedPath}
+    setSelectedPath={setSelectedPath}
+    credsSelected={credsSelected}
+    setCredsSelected={setCredsSelected}
+    />*/
+  }
+  {/*
+    selectedPath >= 3 &&
+    <CourseBox
+    courses={courses}/>
+    */
+  }
+    
+</div>
+</>
   );
 }
 
